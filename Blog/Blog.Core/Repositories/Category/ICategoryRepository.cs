@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Core.Repositories.Category
 {
-    public interface ICategoryRepository:IRepository
+    public interface ICategoryRepository:IRepository<Entities.Category>
     {
     }
 }

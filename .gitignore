@@ -3,3 +3,7 @@
 ################################################################################
 
 /Blog/.vs/Blog
+/Blog/Blog.Core/obj/Debug
+/Blog/Blog.Web/bin
+/Blog/Blog.Web/obj/Debug
+/Blog/Blog.Core/bin/Debug

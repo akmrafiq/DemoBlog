@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Core.Repositories.ArticleCategory
 {
-    public class ArticleCategoryRepository:Repository, IArticleCategoryRepository
+    public class ArticleCategoryRepository:Repository<Entities.ArticleCategory>, IArticleCategoryRepository
     {
     }
 }
