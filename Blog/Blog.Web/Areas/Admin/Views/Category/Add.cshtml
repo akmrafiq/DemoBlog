@@ -1,0 +1,33 @@
+﻿@model Blog.Web.Areas.Admin.Models.CategoryUpdateModel
+@{
+    ViewData["Title"] = "Add Category";
+}
+
+@*@section notification
+{
+    @await Html.PartialAsync("_Notification", Model.Notification)
+}*@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Add Category</h3>
+                </div>
+                <form role="form" action="~/admin/category/add" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="categoryName">Name</label>
+                            <input type="text" class="form-control" name="Name" id="categoryName" placeholder="Enter Name">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Blog.Core.Repositories.Category;
@@ -28,7 +29,7 @@ namespace Blog.Core.Services.Category
 
         public Entities.Category GetCategoryById(int id)
         {
-            throw new NotImplementedException();
+            return _categoryRepository.GetById(id);
         }
 
         public void UpdateCategory(Entities.Category category)
@@ -49,6 +50,26 @@ namespace Blog.Core.Services.Category
             category.UpdateDate = DateTime.UtcNow;
 
             _categoryRepository.Update(category);
+        }
+
+        public IList<Entities.Category> GetCategories(
+            int pageIndex,
+            int pageSize,
+            string searchText,
+            out int total,
+            out int totalFiltered)
+        {
+            Expression<Func<Entities.Category, bool>> filter = null;
+            filter = x => x.IsActive == true && x.IsDeleted == false && x.Name.Contains(searchText);
+            return _categoryRepository.Get(
+                out total,
+                out totalFiltered,
+                filter,
+                x => x.OrderByDescending(b => b.Id),
+                null,
+                null,
+                pageIndex,
+                pageSize);
         }
     }
 }

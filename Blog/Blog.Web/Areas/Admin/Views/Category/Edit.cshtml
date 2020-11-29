@@ -1,0 +1,35 @@
+﻿@model Blog.Web.Areas.Admin.Models.CategoryUpdateModel
+
+@{
+    ViewData["Title"] = "Edit Category";
+}
+
+@*@section notification
+{
+    @Html.RenderPartial("_Notification", Model.Notification)
+}*@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Edit a Category</h3>
+                </div>
+                <form role="form" action="~/admin/category/edit" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" value="@Model.Id" name="Id" />
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="categoryName">Name</label>
+                            <input type="text" class="form-control" name="Name" id="categoryName" placeholder="Enter Name" value="@Model.Name">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

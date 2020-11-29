@@ -9,6 +9,12 @@ namespace Blog.Core.Services.Article
 {
     public interface IArticleService
     {
+        IList<Entities.Article> GetArticles(
+            int pageIndex,
+            int pageSize,
+            string searchText,
+            out int total,
+            out int totalFiltered);
         void AddArticle(Entities.Article article, List<int> categoryIds);
         IList<Entities.Article> ArticleList();
         Entities.Article GetArticleById(int id);

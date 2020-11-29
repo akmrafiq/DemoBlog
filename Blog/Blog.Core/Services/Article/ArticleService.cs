@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Blog.Core.Entities;
@@ -81,6 +82,26 @@ namespace Blog.Core.Services.Article
             article.UpdateDate = DateTime.UtcNow;
 
             _articleRepository.Update(article);
+        }
+
+        public IList<Entities.Article> GetArticles(
+            int pageIndex,
+            int pageSize,
+            string searchText,
+            out int total,
+            out int totalFiltered)
+        {
+            Expression<Func<Entities.Article, bool>> filter = null;
+            filter = x => x.IsActive == true && x.IsDeleted == false && x.Title.Contains(searchText);
+            return _articleRepository.Get(
+                out total,
+                out totalFiltered,
+                filter,
+                x => x.OrderByDescending(b => b.Id),
+                null,
+                null,
+                pageIndex,
+                pageSize);
         }
     }
 }

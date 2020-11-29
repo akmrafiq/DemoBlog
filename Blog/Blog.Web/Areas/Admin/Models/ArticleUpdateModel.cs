@@ -16,22 +16,20 @@ namespace Blog.Web.Areas.Admin.Models
         private readonly IArticleService _articleService = new ArticleService();
         private readonly ICategoryService _categoryService = new CategoryService();
 
-        public virtual int Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Please Enter Title")]
-        public virtual string Title { get; set; }
+        public string Title { get; set; }
 
-        [AllowHtml]
-        [DataType(DataType.MultilineText)]
         [Required(ErrorMessage = "Please Enter Description")]
-        public virtual string Description { get; set; }
+        public string Description { get; set; }
 
         [Required(ErrorMessage = "Please Enter Author Name")]
-        public virtual string Author { get; set; }
-        public virtual string ImageUrl { get; set; }
-        public virtual List<int> CategoryIds { get; set; }
+        public string Author { get; set; }
+        public string ImageUrl { get; set; }
+        public List<int> CategoryIds { get; set; }
 
-        public void AddNewCategory()
+        public void AddNewArticle()
         {
             try
             {
