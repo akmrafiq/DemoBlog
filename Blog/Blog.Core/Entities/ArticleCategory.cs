@@ -8,6 +8,7 @@ namespace Blog.Core.Entities
 {
     public class ArticleCategory:Common
     {
+        public virtual int Id { get; set; }
         public virtual int ArticleId { get; set; }
         public virtual int CategoryId { get; set; }
         public virtual Article Article { get; set; }

@@ -13,8 +13,7 @@ namespace Blog.Core.Config.Mappings
         public ArticleCategoryMapping()
         {
             Table("ArticleCategory");
-            Map(x => x.ArticleId).Not.Nullable();
-            Map(x => x.CategoryId).Not.Nullable();
+            Id(x => x.Id).GeneratedBy.Identity();
             Map(x => x.IsActive);
             Map(x => x.IsDeleted);
             Map(x => x.CreateDate).Nullable();

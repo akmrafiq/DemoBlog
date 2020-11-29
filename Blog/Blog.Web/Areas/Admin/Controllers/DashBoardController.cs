@@ -11,6 +11,7 @@ namespace Blog.Web.Areas.Admin.Controllers
         // GET: Admin/DashBoard
         public ActionResult Index()
         {
+            ViewBag.Title = "Dashboard";
             return View();
         }
     }

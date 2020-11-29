@@ -15,7 +15,7 @@ namespace Blog.Core.Config.Mappings
             Table("Article");
             Id(x => x.Id).GeneratedBy.Identity();
             Map(x => x.Title).Not.Nullable();
-            Map(x => x.Description).Not.Nullable();
+            Map(x => x.Description).Not.Nullable().Length(20000);
             Map(x => x.Author).Not.Nullable();
             Map(x => x.ImageUrl).Nullable();
             Map(x => x.IsActive);
